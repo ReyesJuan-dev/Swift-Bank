@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-family: 'Inter', sans-serif;
+    padding: 20px 40px;
+    background-color: #02066F;
+
+}
+#bank-name{
+    color:white;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.navbar-logo{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#open-account {
+    color: #D4AF37;
+    font-weight: bold;
+}
+
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+.bank-logo{
+    color: #D4AF37;
+    height: 38px;
+    width: 38px;
+}
+
+.navbar-links {
+    display:flex;
+    align-items: center;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links > li > a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown > a {
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+}
+
+.dropdown-menu {
+    display:none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    min-width: 180px;
+    background-color:white;
+
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-menu li a {
+  display: block;
+
+  padding: 12px 20px;
+
+  color: #111;
+  text-decoration: none;
+}
+
+
+
+/* This is what makes the dropdown appear */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+
