@@ -1,49 +1,71 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
 export default function Navbar() {
-  return (
-    <nav className="navbar">
-      <div className="navbar-logo">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          class="bank-logo"
-          viewBox="0 0 16 16"
-        >
-          <path d="m8 0 6.61 3h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.38l.5 2a.498.498 0 0 1-.485.62H.5a.498.498 0 0 1-.485-.62l.5-2A.5.5 0 0 1 1 13V6H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 3h.89zM3.777 3h8.447L8 1zM2 6v7h1V6zm2 0v7h2.5V6zm3.5 0v7h1V6zm2 0v7H12V6zM13 6v7h1V6zm2-1V4H1v1zm-.39 9H1.39l-.25 1h13.72z" />
-        </svg>
-        <h1 id="bank-name">Swift Bank</h1>
-      </div>
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const navigate = useNavigate();
 
-      <ul className="navbar-links">
-        <li className="dropdown">
-          <a href="#Banking">Banking</a>
-          <ul className="dropdown-menu">
-            <li>
-              <a href="#accounts">Accounts</a>
-            </li>
-            <li>
-              <a href="#cards">Cards</a>
-            </li>
-            <li>
-              <a href="#transfers">Transfers</a>
-            </li>
-            <li>
-              <a href="#support">Support</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#sign-in">Sign in</a>
-        </li>
-        <li>
-          <a id="open-account" href="Open Account">
-            Open Account
-          </a>
-        </li>
-      </ul>
-    </nav>
+  const handleOpenAccount = (event) => {
+    event.preventDefault();
+
+    setIsTransitioning(true);
+
+    setTimeout(() => {
+      navigate("/signup");
+    }, 800)
+  };
+
+  return (
+    <>
+      <nav className="navbar">
+        <div className="navbar-logo">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            className="bank-logo"
+            viewBox="0 0 16 16"
+          >
+            <path d="m8 0 6.61 3h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.38l.5 2a.498.498 0 0 1-.485.62H.5a.498.498 0 0 1-.485-.62l.5-2A.5.5 0 0 1 1 13V6H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 3h.89zM3.777 3h8.447L8 1zM2 6v7h1V6zm2 0v7h2.5V6zm3.5 0v7h1V6zm2 0v7H12V6zM13 6v7h1V6zm2-1V4H1v1zm-.39 9H1.39l-.25 1h13.72z" />
+          </svg>
+          <h1 id="bank-name">Swift Bank</h1>
+        </div>
+
+        <ul className="navbar-links">
+          <li className="dropdown">
+            <a href="#Banking">Banking</a>
+            <ul className="dropdown-menu">
+              <li>
+                <a href="#accounts">Accounts</a>
+              </li>
+              <li>
+                <a href="#cards">Cards</a>
+              </li>
+              <li>
+                <a href="#transfers">Transfers</a>
+              </li>
+              <li>
+                <a href="#support">Support</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#sign-in">Sign in</a>
+          </li>
+          <li>
+            <a id="open-account" href="/signup" onClick={handleOpenAccount}>
+              Open Account
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div 
+      className={`page-transition ${
+        isTransitioning ? "page-transition-active" : ""
+      }`}
+      ></div>
+    </>
   );
 }

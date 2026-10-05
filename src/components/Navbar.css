@@ -97,4 +97,23 @@
   display: block;
 }
 
+.page-transition {
+    position: fixed;
+
+    top: 82px;
+    left: 0;
+
+    width: 100%;
+    height: 0;
+
+    background-color: #02066F;
+
+    z-index: 999;
+
+    transition: height 0.8s ease-in-out;
+}
+
+.page-transition-active {
+    height: 100vh;
+}
 
